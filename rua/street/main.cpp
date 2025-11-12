@@ -86,9 +86,6 @@ int main(int argc, char* argv[])
     double distanciaZ = -30;
     int distanciaX = 4.0;
 
-    // --- CORREÇÃO LOOP POSTES ---
-    // A rotação em X (rotacionaPosteX) foi restaurada para "levantar" o poste.
-    // A rotação em Y (rotacionaPosteY) foi corrigida para virar o braço para a rua.
     for (int i = 0; i < 4; i++) {
         VART::Transform* transladaPoste = new VART::Transform();
         VART::Transform* rotacionaPosteX = new VART::Transform();
@@ -100,17 +97,14 @@ int main(int argc, char* argv[])
 
         // Define as transformações
         transladaPoste->MakeTranslation(posicaoX, 0, posicaoZ);
-        rotacionaPosteX->MakeXRotation(M_PI_2); // 1. Levanta o poste (gira em torno de X)
+        rotacionaPosteX->MakeXRotation(M_PI_2); 
 
-        // 2. Gira o poste (em torno de Y) para o braço apontar para a rua
-        // (Assumindo que o braço, após levantar, aponta para -Z)
+
         if (i % 2 == 0) { 
             // Postes da esquerda (i=0, 2)
-            // Gira +90 graus para o braço apontar para +X (rua)
             rotacionaPosteY->MakeYRotation(0); 
         } else {
             // Postes da direita (i=1, 3)
-            // Gira -90 graus para o braço apontar para -X (rua)
             rotacionaPosteY->MakeYRotation(M_PI);
         }
 

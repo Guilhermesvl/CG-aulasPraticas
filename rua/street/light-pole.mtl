@@ -1,0 +1,10 @@
+# Blender MTL File: 'light-pole.blend'
+# Material Count: 1
+
+newmtl None
+Ns 0
+Ka 0.6 0.6 0.6
+Kd 0.7 0.7 0.7
+Ks 0.1 0.1 0.1
+d 1
+illum 2
